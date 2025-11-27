@@ -1,91 +1,80 @@
-Cache Simulator Web App
-=======================
-PRAVEENA KURUKULADITHYA-SLIIT-IT23689862;
-Project Name: CacheWebSim
-Description:
--------------
-A web-based interactive cache simulator built with Python and Streamlit. 
-It allows users to simulate single-level (L1) and multi-level (L1 + L2) cache architectures, 
-explore replacement policies, and analyze performance metrics like hit ratio, miss ratio, and average memory access time (AMAT).
+# 🚀 Cache Simulator Web App
+IE2064_ACOA (Advanced Computer Architecture) project — interactive cache simulator built with Python + Streamlit. Compare L1 vs L1+L2, replacement policies, and see hit/miss metrics and AMAT in real time.
 
-Features:
----------
+## 👥 Team & Module
+- Module: IE2064_ACOA (Advanced Computer Architecture)
+- Student: PRAVEENA KURUKULADITHYA (SLIIT | IT23689862)
+- Project Name: CacheWebSim
+
+## 📝 Description
+A web-based simulator to explore cache behavior. Configure cache size, block size, associativity, replacement policy, and access cycles; choose memory access patterns; visualize hit/miss behavior and estimated AMAT. Great for demonstrating how architectural knobs affect performance.
+
+## ✨ Features
 - Fully configurable cache parameters: size, block size, associativity, replacement policy, and access cycles.
-- Multi-level caching support (L1 + optional L2).
-- Interactive sliders and dropdowns for user-friendly configuration.
-- Choice of memory access patterns: Random or Sequential.
-- Real-time calculation of:
+- Optional L2 level to show multi-level cache benefits.
+- Interactive sliders/dropdowns for quick experiments.
+- Access patterns: Random or Sequential (extendable to more patterns).
+- Live metrics:
   - L1 and L2 Hit Ratio
   - L1 and L2 Miss Ratio
   - Approximate AMAT
 - Easy to extend for visual cache block simulation and advanced analytics.
 
-Requirements:
--------------
+## 📦 Requirements
 - Python 3.8+
 - Streamlit
 - NumPy
 - Matplotlib / Plotly (optional)
 
-Install dependencies:
----------------------
-pip install -r requirements.txt
+## ⚙️ Installation
+1) Clone or download the project.  
+2) Navigate to the project directory:  
+   `cd CacheWebSim`  
+3) (Optional) Create a virtual environment:  
+   - Windows: `python -m venv venv && venv\Scripts\activate`  
+   - Mac/Linux: `python -m venv venv && source venv/bin/activate`  
+4) Install dependencies:  
+   `pip install -r requirements.txt`
 
-Installation and Setup:
------------------------
-1. Clone or download the project folder.
-2. Navigate to the project directory:
-   cd CacheWebSim
-3. (Optional) Create a virtual environment:
-   python -m venv venv
-   # Activate the environment
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
-4. Install dependencies:
-   pip install -r requirements.txt
-
-Running the App:
-----------------
-1. Run the Streamlit app using:
-   streamlit run app.py
-2. A browser window/tab will open automatically.
-3. Use the sidebar to adjust cache parameters (size, block size, associativity, replacement policy, etc.).
-4. Select the memory access pattern: Random or Sequential.
-5. Click "Run Simulation" to see performance metrics like:
-   - L1/L2 Hit Ratio
-   - L1/L2 Miss Ratio
+## ▶️ Running the App
+1) Start Streamlit: `streamlit run app.py`  
+2) A browser tab opens automatically.  
+3) Use the sidebar to tune cache parameters and access patterns.  
+4) Click “Run Simulation” to see:  
+   - L1/L2 Hit Ratio  
+   - L1/L2 Miss Ratio  
    - Average Memory Access Time (AMAT)
 
-File Structure:
----------------
+## 🗂️ File Structure
+```
 CacheWebSim/
-│
-├── app.py               # Main Streamlit application
+├── app.py               # Streamlit UI
 ├── cache_simulator.py   # Cache simulation logic
-├── requirements.txt     # Python dependencies
-└── README.txt           # This file
+├── requirements.txt     # Dependencies
+└── README.md            # This guide
+```
 
-Simulation Details:
--------------------
-- Cache Access Logic: Checks if the requested address is in the cache. On a miss, accesses the next level (L2 or main memory).
-- Replacement Policies Supported:
-  - LRU (Least Recently Used)
-  - FIFO (First-In-First-Out)
-  - Random Replacement
-- Metrics Calculated:
+## 🔍 Simulation Details
+- Cache Access: Check tag/index; on miss, access next level (L2 or main memory).
+- Replacement Policies: LRU, FIFO, Random.
+- Metrics:
   - Hit Ratio = Hits / Total Accesses
   - Miss Ratio = 1 – Hit Ratio
   - AMAT = L1 Access Time + (Miss Ratio × Miss Penalty)
+- Extendable: Add more patterns (temporal locality, conflict-heavy traces) or visualize set contents.
 
-Future Improvements:
---------------------
-- Add L3 cache visualization for multi-core systems.
-- Include real-time cache block display (color-coded hits/misses).
-- Use benchmark memory traces instead of random addresses.
-- Add graphs of hit ratio vs cache size or associativity.
-- Implement write policies (write-back vs write-through).
+## 🧭 Suggested Demos (for IE2064_ACOA)
+- Replacement policy impact: LRU vs FIFO with same size/assoc.
+- Conflict vs capacity: low-assoc vs higher-assoc caches under the same footprint.
+- Multi-level benefit: L1-only vs L1+L2 with slower memory.
+- Block size vs sequential access: small vs large blocks on sequential traces.
 
-License:
---------
-For educational purposes and academic demonstrations. 
-Feel free to modify and extend for personal or research use.
+## 🚀 Future Improvements
+- L3 cache visualization for multi-core scenarios.
+- Real-time cache block display (color-coded hits/misses).
+- Benchmark traces instead of only random/sequential.
+- Hit ratio vs cache size/associativity graphs.
+- Write policies (write-back vs write-through).
+
+## 📄 License
+For educational purposes and academic demonstrations. Feel free to modify and extend for personal or research use.
